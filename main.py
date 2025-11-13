@@ -1,11 +1,10 @@
 import time
 import datetime
 import psutil
-import subprocess
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 
-app = FastAPI(root_path="/raspi-api")
+app = FastAPI()
 
 
 def classify_overall_score(score: float) -> str:
@@ -25,7 +24,7 @@ def classify_overall_score(score: float) -> str:
 
 @app.get("/")
 def get_root():
-    return RedirectResponse("docs")
+    return RedirectResponse("/docs")
 
 
 @app.get("/status")
